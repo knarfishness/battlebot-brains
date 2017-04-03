@@ -3,7 +3,6 @@ from socketIO_client import SocketIO, LoggingNamespace
 class socket_set:
     def on_connect():
         print('connect')
-        socketIO.emit('connect', {id: 101, timestamp: ts})
 
     def on_disconnect():
         print('disconnect')
@@ -32,21 +31,22 @@ class socket_set:
         # do a delay?
         # reenable
 
-    def attempted_shot(id):
+    def attempted_shot(self, id):
         print('This bot has attempted a shot: ')
         print(id)
-        socketIO.emit(
+        self.socketIO.emit('fire', {'id': 123, 'test':'value'})
+        self.socketIO.wait()
 
     #Initialize the controller when the object is created
     def __init__(self):
         # Connect to the SocketIO Game server
-        socketIO = SocketIO('10.0.0.1', 8000, LoggingNamespace)
-        socketIO.on('connect', on_connect)
-        socketIO.on('disconnect', on_disconnect)
-        socketIO.on('reconnect', on_reconnect)
+        self.socketIO = SocketIO('10.5.65.45', 3000, LoggingNamespace)
+        #socketIO.on('connect', on_connect)
+        #socketIO.on('disconnect', on_disconnect)
+        #socketIO.on('reconnect', on_reconnect)
 
         # Listen for game events
-        socketIO.on('game_start', on_game_start)
-        socketIO.on('game_halt', on_game_halt)
-        socketIO.on('game_resume', on_game_resume)
-        socketIO.on('game_end', on_game_end)
+        #socketIO.on('game_start', on_game_start)
+        #socketIO.on('game_halt', on_game_halt)
+        #socketIO.on('game_resume', on_game_resume)
+        #socketIO.on('game_end', on_game_end)

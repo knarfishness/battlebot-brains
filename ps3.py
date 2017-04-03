@@ -126,4 +126,3 @@ class ps3:
 		#refresh
 		pygame.event.get()
 		return button_analog
-	

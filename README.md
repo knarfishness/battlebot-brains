@@ -20,6 +20,7 @@ For BulletTime 2016-2017, we've constructed and programmed Infrared Combat robot
 1. `apt-get update`
 2. `apt-get upgrade`
 3. `apt-get install python-dev libusb-dev joystick python-pygame`
+4. `pip install pygame socketIO-client pyserial`
 
 ## PS3 Controller Setup
 1. `cd ~`
