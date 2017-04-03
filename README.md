@@ -40,11 +40,11 @@ For BulletTime 2016-2017, we've constructed and programmed Infrared Combat robot
 Event | Calls | Description
 --- | --- | --- 
 connect | `on_connect()` | Connection to the Server
-disconnect |  `on_connect()`| Event fired when disconnected
-reconnect |  `on_connect()`| Reconnection event
-start |  `on_connect()`| Game has started
-halt |  `on_connect()`| Game has been halted
-resume |  `on_connect()`| Game has been resumed
-end |  `on_connect()`| Game has ended
+disconnect |  `on_disconnect()`| Event fired when disconnected
+reconnect |  `on_reconnect()`| Reconnection event
+start |  `on_game_start()`| Game has started (release bot movement, start scoring)
+halt |  `on_game_halt()`| Game has been halted (bot hit, other issue?)
+resume |  `on_game_resume()`| Game has been resumed (after HALT event)
+end |  `on_game_end()`| Game has ended, shut down and score
 i_have_been_shot | `i_have_been_shot(id)` | Bot has been shot by provided id
 
