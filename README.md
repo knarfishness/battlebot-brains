@@ -7,6 +7,7 @@ For BulletTime 2016-2017, we've constructed and programmed Infrared Combat robot
 2. Infrared Control (`infrared.py`): Control for connecting to and using the YS-IRTM Infrared Module
 3. PS3 Controller Lib (`ps3.py`): Interface for the `/dev/input/js0` input stream
 4. SocketIO Lib (`socket_set.py`): Controller for interacting with the NodeJS SocketIO Game Server
+5. Motor Control (`motor_control.py`): Controls the Adafruit PWM DC Motor Shield, forward, back and release functions
 
 ## Hardware Components
 1. [Raspberry Pi 3 B+ (WiFi, Bluetooth)](https://www.raspberrypi.org/documentation/usage/)
