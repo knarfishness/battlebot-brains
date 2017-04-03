@@ -33,6 +33,11 @@ For BulletTime 2016-2017, we've constructed and programmed Infrared Combat robot
 10. `trust 38:C0:96:5C:C6:60` (replace with controller address)
 11. `jstest /dev/input/js0` (for testing)
 
+## Install this library
+1. `git clone https://git/favery/battlebot-brains.git`
+2. `cd battlebot-brains`
+3. Add the `battlebot.py` script to the startup scripts on the Pi (`/etc/rc.local`)
+
 ## Code Customization
 1. Set a unique bot ID
 2. Bind with a particular controller
