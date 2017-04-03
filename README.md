@@ -3,9 +3,10 @@
 For BulletTime 2016-2017, we've constructed and programmed Infrared Combat robots to be used in a customized arena run by a NodeJS server.
 
 ## Software Components
-1. Python
-2. pypi socket.io client
-3. Standard Python serial interface
+1. Main Program (`battlebot.py`): Main Loop of the program, uses all other files as libraries
+2. Infrared Control (`infrared.py`): Control for connecting to and using the YS-IRTM Infrared Module
+3. PS3 Controller Lib (`ps3.py`): Interface for the `/dev/input/js0` input stream
+4. SocketIO Lib (`socket_set.py`): Controller for interacting with the NodeJS SocketIO Game Server
 
 ## Hardware Components
 1. [Raspberry Pi 3 B+ (WiFi, Bluetooth)](https://www.raspberrypi.org/documentation/usage/)

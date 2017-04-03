@@ -60,6 +60,8 @@ while True:
     # determine based off of L1 or R1 if we should be firing during this loop
     if( p.r1 || p.l1 ) {
         ir.shoot()
+        # we'll also need to provide the timestamp eventually
+        socket_set.attempted_shot(botID)
     }
 
     # process joystick input and produce movement in the absence of hit events

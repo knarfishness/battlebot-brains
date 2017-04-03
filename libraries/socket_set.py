@@ -3,6 +3,7 @@ from socketIO_client import SocketIO, LoggingNamespace
 class socket_set:
     def on_connect():
         print('connect')
+        socketIO.emit('connect', {id: 101, timestamp: ts})
 
     def on_disconnect():
         print('disconnect')
@@ -30,6 +31,11 @@ class socket_set:
         # report the hit count to the server
         # do a delay?
         # reenable
+
+    def attempted_shot(id):
+        print('This bot has attempted a shot: ')
+        print(id)
+        socketIO.emit(
 
     #Initialize the controller when the object is created
     def __init__(self):
