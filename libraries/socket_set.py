@@ -40,7 +40,7 @@ class socket_set:
     #Initialize the controller when the object is created
     def __init__(self):
         # Connect to the SocketIO Game server
-        self.socketIO = SocketIO('10.5.65.45', 3000, LoggingNamespace)
+        self.socketIO = SocketIO('localhost', 3000, LoggingNamespace)
         #socketIO.on('connect', on_connect)
         #socketIO.on('disconnect', on_disconnect)
         #socketIO.on('reconnect', on_reconnect)
