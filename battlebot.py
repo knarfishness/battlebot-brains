@@ -34,7 +34,7 @@ socket=socket_set()
 socket.connect()
 
 # Start the motor logic
-motors=motor_control()()
+motors=motor_control()
 
 # Initialize the Infrared Combat Unit
 ir=infrared()
@@ -46,25 +46,25 @@ print "BattleBot Sequence Complete. BattleBot is GO!"
 # Main Loop
 while True:
     # let's read the IR transmitter to see if we've been hit first
-    x = ser.readline()
+    #x = ser.readline()
 
     # hit events will be an ID
-    if(x):
-        botID = x;
+    #if(x):
+        #botID = x;
         # SOCKET: send an event to the sever indicating you've been hit
-        socket_set.i_have_been_shot(botID)
+        #socket_set.i_have_been_shot(botID)
 
     # Reads in the values from the PS3 controller
-    p.update()
+    #p.update()
 
     # determine based off of L1 or R1 if we should be firing during this loop
-    if( p.r1 or p.l1 ):
-        ir.shoot()
+    #if( p.r1 or p.l1 ):
+        #ir.shoot()
         # we'll also need to provide the timestamp eventually
-        socket_set.attempted_shot(botID)
+        #socket_set.attempted_shot(botID)
 
     # process joystick input and produce movement in the absence of hit events
-    motors.handle_joystick_input()
+    #motors.handle_joystick_input()
 
     # for stability
     time.sleep(.01)
