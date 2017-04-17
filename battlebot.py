@@ -27,20 +27,20 @@ print "Initializing BattleBot Sequence (Servo)"
 #time.sleep(15)
 
 # Create a PS3 controller object
-#p=ps3()
+p=ps3.ps3()
 
 # Connect to the socket server
 #socket=socket_set()
 #socket.connect()
 
 # Start the motor logic
-motors=motor_control()
+motors=motor_control.motor_control()
 
 # Initialize the Infrared Combat Unit
 #ir=infrared()
 
 # end init sequence
-print "Serial is open: " + str(ser.isOpen())
+#print "Serial is open: " + str(ser.isOpen())
 print "BattleBot Sequence Complete. BattleBot is GO!"
 
 # Main Loop
@@ -55,7 +55,7 @@ while True:
         #socket_set.i_have_been_shot(botID)
 
     # Reads in the values from the PS3 controller
-    #p.update()
+    p.update()
 
     # determine based off of L1 or R1 if we should be firing during this loop
     #if( p.r1 or p.l1 ):
@@ -64,7 +64,7 @@ while True:
         #socket_set.attempted_shot(botID)
 
     # process joystick input and produce movement in the absence of hit events
-    #motors.handle_joystick_input()
+    motors.handle_joystick_input(p)
 
     # for stability
     time.sleep(.01)
