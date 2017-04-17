@@ -27,17 +27,17 @@ print "Initializing BattleBot Sequence (Servo)"
 #time.sleep(15)
 
 # Create a PS3 controller object
-p=ps3()
+#p=ps3()
 
 # Connect to the socket server
-socket=socket_set()
-socket.connect()
+#socket=socket_set()
+#socket.connect()
 
 # Start the motor logic
 motors=motor_control()
 
 # Initialize the Infrared Combat Unit
-ir=infrared()
+#ir=infrared()
 
 # end init sequence
 print "Serial is open: " + str(ser.isOpen())
