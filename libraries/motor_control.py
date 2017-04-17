@@ -4,7 +4,7 @@ import time
 class motor_control:
     def __init__(self):
         # Initialise the PWM device using the default address
-        pwm = PWM(0x40)
+        pwm = PWM(0x60)
 
         # Reverse these values to switch motor sides
         left_id = 2
