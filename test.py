@@ -1,15 +1,37 @@
 #!/usr/bin/env python
 
 # handle imports
-from ps3 import *
-from motor_control import *
-from socket_set import *
-from infrared import *
 import time
 import serial
 import string
 
+# handle libraries
+from libraries.ps3 import *
+from libraries.motor_control import *
+from libraries.socket_set import *
+from libraries.infrared import *
+
 print "Initializing BattleBot Sequence (Servo)"
 
-socket=socket_set()
-socket.attempted_shot(123)
+bot1=socket_set()
+bot2=socket_set()
+
+bot1.fire(123)
+bot1.fire(123)
+bot2.hit(123)
+bot1.fire(123)
+bot1.fire(123)
+bot2.hit(123)
+bot1.fire(123)
+bot1.fire(123)
+bot2.hit(123)
+bot1.fire(123)
+bot1.fire(123)
+bot2.hit(123)
+bot1.fire(123)
+bot1.fire(123)
+bot2.hit(123)
+bot1.fire(123)
+bot1.fire(123)
+bot2.hit(123)
+
