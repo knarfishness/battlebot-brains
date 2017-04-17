@@ -13,10 +13,10 @@
 ########################################################################
 
 # handle imports
-from ps3 import *
-from motor_control import *
-from socket_set import *
-from infrared import *
+from libraries import ps3
+from libraries import motor_control
+from libraries import socket_set
+from libraries import infrared
 import time
 import serial
 import string
