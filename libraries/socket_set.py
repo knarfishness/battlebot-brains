@@ -5,7 +5,7 @@ class socket_set:
     #Initialize the controller when the object is created
     def __init__(self):
         # Connect to the SocketIO Game server
-        self.socketIO = SocketIO('localhost', 3000, LoggingNamespace)
+        self.socketIO = SocketIO('192.168.1.10', 3000, LoggingNamespace)
         self.socketIO.on('stop', self.on_stop)
         # Listen for game events
         #socketIO.on('connect', on_connect)
@@ -49,28 +49,24 @@ class socket_set:
         # do a delay?
         # reenable
 
-    def register(self, id):
-        print('Attempting registration for: ')
-        print(id)
-        self.socketIO.emit('register', {'id': id})
+    def register(self):
+        print('Attempting registration')
+        self.socketIO.emit('register')
         #self.socketIO.wait()
 
-    def ready(self, id):
-        print('Reporting ready for: ')
-        print(id)
-        self.socketIO.emit('ready', {'id': id})
+    def ready(self):
+        print('Reporting ready')
+        self.socketIO.emit('ready')
         #self.socketIO.wait()
 
-    def fire(self, id):
-        print('This bot has attempted a shot: ')
-        print(id)
-        self.socketIO.emit('fire', {'botid': id})
+    def fire(self):
+        print('This bot has attempted a shot')
+        self.socketIO.emit('fire')
         #self.socketIO.wait()
 
-    def hit(self, id):
-        print('This bot has been hit: ')
-        print(id)
-        self.socketIO.emit('hit', {'id': id})
+    def hit(self):
+        print('This bot has been hit')
+        self.socketIO.emit('hit')
         #self.socketIO.wait()
 
 
