@@ -36,9 +36,6 @@ p=ps3.ps3()
 # Start the motor logic
 motors=motor_control.motor_control()
 
-# shoot values
-values = bytearray([0xA1, 0xF1, 0x01, 0x00, 0x01])
-
 ir = infrared.infrared()
 
 penalty_time = 5
@@ -49,7 +46,13 @@ print ("BattleBot Sequence Complete. BattleBot is GO!")
 
 # Main Loop
 while True:
-
+    data = str(ir.read())
+    # let's read the IR transmitter to see if we've been hit first
+    if "BBB" in data:
+        print("I've been hit!")
+        #socket_set.hit()
+        motors.hit_wiggle()
+        clear = ir.read()
 
     # Reads in the values from the PS3 controller
     p.update()
@@ -66,11 +69,7 @@ while True:
     # process joystick input and produce movement in the absence of hit events
     motors.handle_joystick_input(p)
 
-    # let's read the IR transmitter to see if we've been hit first
-    if(ir.read() == 'AAA'):
-        print("I've been hit!")
-        socket_set.hit()
-        time.sleep(penalty_time)
+    
 
     # for stability
     time.sleep(0.1)
