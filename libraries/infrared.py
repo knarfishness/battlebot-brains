@@ -22,4 +22,5 @@ class infrared():
         ser.write(values)
 
     def read(self):
-        return ser.read(3);
+        if (ser.inWaiting() > 0):
+            return ser.read(ser.inWaiting())

@@ -30,8 +30,8 @@ time.sleep(5)
 p=ps3.ps3()
 
 # Connect to the socket server
-socket=socket_set.socket_set()
-socket.register()
+#socket=socket_set.socket_set()
+#socket.register()
 
 # Start the motor logic
 motors=motor_control.motor_control()
@@ -49,23 +49,28 @@ print ("BattleBot Sequence Complete. BattleBot is GO!")
 
 # Main Loop
 while True:
-    # let's read the IR transmitter to see if we've been hit first
-    if(ir.read() == 'AAA'):
-        print("I've been hit!")
-        socket_set.hit()
-        time.sleep(penalty_time)
+
 
     # Reads in the values from the PS3 controller
     p.update()
 
     # determine based off of L1 or R1 if we should be firing during this loop
-    if( p.r1 or p.l1 ):
+    if( p.r1 ):
         ir.shoot()
-        socket.fire()
+        #socket.fire()
         print ("Shots Fired!")
+
+    if( p.l1 ):
+        print ("Grenade Fired!")
 
     # process joystick input and produce movement in the absence of hit events
     motors.handle_joystick_input(p)
+
+    # let's read the IR transmitter to see if we've been hit first
+    if(ir.read() == 'AAA'):
+        print("I've been hit!")
+        socket_set.hit()
+        time.sleep(penalty_time)
 
     # for stability
     time.sleep(0.1)
