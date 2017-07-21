@@ -6,32 +6,18 @@ import serial
 import string
 
 # handle libraries
-from libraries.ps3 import *
-from libraries.motor_control import *
-from libraries.socket_set import *
-from libraries.infrared import *
+# from libraries.ps3 import *
+# from libraries.motor_control import *
+# from libraries.socket_set import *
+# from libraries.infrared import *
+from libraries.buzzer import *
 
 print "Initializing BattleBot Sequence (Servo)"
 
-bot1=socket_set()
-bot2=socket_set()
+buzzer = buzzer();
 
-bot1.fire(123)
-bot1.fire(123)
-bot2.hit(123)
-bot1.fire(123)
-bot1.fire(123)
-bot2.hit(123)
-bot1.fire(123)
-bot1.fire(123)
-bot2.hit(123)
-bot1.fire(123)
-bot1.fire(123)
-bot2.hit(123)
-bot1.fire(123)
-bot1.fire(123)
-bot2.hit(123)
-bot1.fire(123)
-bot1.fire(123)
-bot2.hit(123)
+# try a buzz, pitch/duration
+buzzer.buzz(262, 1.0)
+
+
 
