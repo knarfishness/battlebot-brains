@@ -72,12 +72,12 @@ while True:
     # attempt to bind to the socket server if the start button is pressed
     if ( p.start ):
         # Connect to the socket server
-        buzzer.play(5)
+        buzzer.buzz(260, 0.1)
         try:
             socket=socket_set.socket_set()
             socket.register()
         except:
-            break
+            pass
 
     # determine based off of L1 or R1 if we should be firing during this loop
     if( p.r1 ):
