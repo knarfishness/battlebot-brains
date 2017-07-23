@@ -35,8 +35,8 @@ while p is None:
     except:
         # Controller not found, attempting again in 5
         p = None
-        time.sleep(5)
-        pass
+        #time.sleep(5)
+        #pass
 
 # Start the motor logic
 motors=motor_control.motor_control()
@@ -79,7 +79,7 @@ while True:
                 socket=socket_set.socket_set()
                 socket.register()
             except:
-                pass
+                continue
         else:
             # we're already connected
             print ("Already connected to server")
