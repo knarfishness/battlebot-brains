@@ -17,59 +17,78 @@ from libraries import ps3
 from libraries import motor_control
 from libraries import socket_set
 from libraries import infrared
+from libraries import buzzer
 import time
 import serial
 import string
+import pygame
 
-print ("Initializing BattleBot Sequence (Servo)")
+print ("Initializing BattleBot Startup Sequence...")
 
-# Delays for 15 seconds, enough for the PS3 controller
-time.sleep(5)
-
-# Create a PS3 controller object
-p=ps3.ps3()
-
-# Connect to the socket server
-#socket=socket_set.socket_set()
-#socket.register()
+p = None
+while p is None:
+    try:
+        # connect
+        print ("Seeking a PS3 controller...")
+        p = ps3.ps3()
+    except:
+        # Controller not found, attempting again in 5
+        time.sleep(5)
+        pass
 
 # Start the motor logic
 motors=motor_control.motor_control()
 
+# Initialize the IR send/receive module
 ir = infrared.infrared()
 
-penalty_time = 5
+# Create a buzzer object to make sounds with
+buzzer = buzzer.buzzer()
 
-# end init sequence
-#print "Serial is open: " + str(ir.isOpen())
+# Set a int for penalty when hit
+penalty_time = 5
+reload_time = 1
+
+
 print ("BattleBot Sequence Complete. BattleBot is GO!")
 
 # Main Loop
 while True:
     data = str(ir.read())
     # let's read the IR transmitter to see if we've been hit first
-    if "BBB" in data:
+    if len(data) > 2:
         print("I've been hit!")
         #socket_set.hit()
-        motors.hit_wiggle()
+        buzzer.buzz(128, 1.0)
         clear = ir.read()
+        if( socket ):
+            socket.hit()
 
     # Reads in the values from the PS3 controller
     p.update()
 
+    # attempt to bind to the socket server if the start button is pressed
+    if ( p.start ):
+        # Connect to the socket server
+        buzzer.buzz(180, 0.2)
+        buzzer.buzz(180, 0.2)
+        socket=socket_set.socket_set()
+        socket.register()
+
     # determine based off of L1 or R1 if we should be firing during this loop
     if( p.r1 ):
+        print ("Firing Main Cannon")
+        buzzer.buzz(220, 1.0)
         ir.shoot()
-        #socket.fire()
-        print ("Shots Fired!")
+        if( socket ):
+            socket.fire()
 
     if( p.l1 ):
         print ("Grenade Fired!")
+        buzzer.buzz(240, 2.0)
 
     # process joystick input and produce movement in the absence of hit events
     motors.handle_joystick_input(p)
-
-    
 
     # for stability
     time.sleep(0.1)
