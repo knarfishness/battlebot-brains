@@ -58,7 +58,7 @@ print ("BattleBot Sequence Complete. BattleBot is GO!")
 while True:
     data = str(ir.read())
     # let's read the IR transmitter to see if we've been hit first
-    if (data = "BBB"):
+    if "BBB" in data:
         print("I've been hit!")
         #socket_set.hit()
         buzzer.buzz(128, 1.0)
