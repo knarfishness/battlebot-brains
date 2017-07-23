@@ -87,14 +87,14 @@ while True:
     # determine based off of L1 or R1 if we should be firing during this loop
     if( p.r1 ):
         print ("Firing Main Cannon")
-        buzzer.buzz(220, 1.0)
+        buzzer.buzz(220, 0.1)
         ir.shoot()
         if( socket ):
             socket.fire()
 
     if( p.l1 ):
         print ("Grenade Fired!")
-        buzzer.buzz(240, 2.0)
+        buzzer.buzz(100, 0.2)
 
     # process joystick input and produce movement in the absence of hit events
     motors.handle_joystick_input(p)
