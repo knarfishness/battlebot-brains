@@ -6,7 +6,7 @@ import time               #import the time library
 class buzzer(object):
  def __init__(self):
   GPIO.setmode(GPIO.BCM)
-  self.buzzer_pin = 21 #set to GPIO pin 5
+  self.buzzer_pin = 20 #set to GPIO pin 5
   GPIO.setup(self.buzzer_pin, GPIO.IN)
   GPIO.setup(self.buzzer_pin, GPIO.OUT)
   print("buzzer ready")
