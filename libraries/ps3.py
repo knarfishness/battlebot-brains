@@ -53,7 +53,10 @@ class ps3:
 		
 		pygame.init()
 		pygame.joystick.init()
-		ps3.joystick = pygame.joystick.Joystick(0)
+		try:
+		    ps3.joystick = pygame.joystick.Joystick(0)
+		except:
+		    raise pygame.error
 		ps3.joystick.init()
 		ps3.joystick_count = pygame.joystick.get_count()
 		ps3.numaxes = ps3.joystick.get_numaxes()
