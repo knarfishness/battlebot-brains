@@ -8,6 +8,7 @@
 # Frank Avery   2 Feb 2017      Initial Authoring
 # Frank Avery   1 Apr 2017      Initial serial and socket work
 # Frank Avery   2 Apr 2017      Code Organization
+# Frank Avery   23 Jul 2017     Added sounds and better logic
 #
 
 ########################################################################
@@ -49,6 +50,7 @@ buzzer = buzzer.buzzer()
 penalty_time = 5
 reload_time = 1
 
+socket = None
 
 print ("BattleBot Sequence Complete. BattleBot is GO!")
 
