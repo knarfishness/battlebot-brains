@@ -77,9 +77,9 @@ while True:
             buzzer.buzz(288, 0.1)
             try:
                 socket=socket_set.socket_set()
-                socket.register()
             except:
-                continue
+                break
+            socket.register()
         else:
             # we're already connected
             print ("Already connected to server")
