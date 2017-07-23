@@ -77,7 +77,7 @@ while True:
             socket=socket_set.socket_set()
             socket.register()
         except:
-            pass
+            break
 
     # determine based off of L1 or R1 if we should be firing during this loop
     if( p.r1 ):
