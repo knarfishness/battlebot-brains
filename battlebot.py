@@ -34,6 +34,7 @@ while p is None:
         p = ps3.ps3()
     except:
         # Controller not found, attempting again in 5
+        p = None
         time.sleep(5)
         pass
 
@@ -81,6 +82,7 @@ while True:
                 pass
         else:
             # we're already connected
+            print ("Already connected to server")
             buzzer.buzz(102, 0.1)
 
 
