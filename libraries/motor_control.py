@@ -9,11 +9,13 @@ class motor_control:
         # Reverse these values to switch motor sides
         left_id = 2
         right_id = 1
+        global backward
+        global forward
+        global left
+        global right
         backward = Adafruit_MotorHAT.BACKWARD
         forward = Adafruit_MotorHAT.FORWARD
-        global left
         left = mh.getMotor(left_id)
-        global right 
         right = mh.getMotor(right_id)
 
         # Start with motors turned off
