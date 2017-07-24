@@ -2,22 +2,16 @@
 
 # handle imports
 import time
-import serial
-import string
+from libraries import ps3
 
-# handle libraries
-# from libraries.ps3 import *
-# from libraries.motor_control import *
-# from libraries.socket_set import *
-# from libraries.infrared import *
-from libraries.buzzer import *
+test = None
 
-print "Initializing BattleBot Sequence (Servo)"
-
-buzzer = buzzer();
-
-# try a buzz, pitch/duration
-buzzer.buzz(262, 1.0)
-
-
+while test is None:
+    try:
+        print("Do the thing")
+        p = ps3.ps3()
+        raise(GenericError)
+    except:
+        print("Got the error")
+        time.sleep(1);
 

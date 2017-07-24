@@ -4,7 +4,7 @@ class socket_set:
 
     #Initialize the controller when the object is created
     def __init__(self):
-        # Connect to the SocketIO Game server
+        # Connect to the SocketIO Game server 
         self.socketIO = SocketIO('192.168.1.10', 3000, LoggingNamespace)
         self.socketIO.on('stop', self.on_stop)
         # Listen for game events

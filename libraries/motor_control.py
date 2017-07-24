@@ -49,9 +49,21 @@ class motor_control:
         left.run(Adafruit_MotorHAT.RELEASE)
 
     def penalty_on_hit(self):
-        self.left_release()
-        self.right_release()
-        time.sleep(5)
+        left.setSpeed(128)
+        right.setSpeed(128)
+
+        left.run(backward)
+        right.run(forward)
+        time.sleep(0.1)
+        left.run(forward)
+        right.run(backward)
+        time.sleep(0.1)
+        left.run(backward)
+        right.run(forward)
+        time.sleep(0.1)
+        left.run(forward)
+        right.run(backward)
+        time.sleep(0.1)
 
     def handle_joystick_input(self, p):
         # value will be 90 at neutral, 0 at full throttle and 179 at full down

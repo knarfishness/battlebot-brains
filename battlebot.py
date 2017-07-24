@@ -23,20 +23,22 @@ import time
 import serial
 import string
 import pygame
+import os
+import sys
 
 print ("Initializing BattleBot Startup Sequence...")
 
+# Attempt to connect to a PS3 controller
 p = None
 while p is None:
     try:
-        # connect
-        print ("Seeking a PS3 controller...")
+        print ("Looking for a controller...")
         p = ps3.ps3()
     except:
-        # Controller not found, attempting again in 5
+        print("No controller found, trying again in 2 seconds.")
         p = None
-        #time.sleep(5)
-        #pass
+        time.sleep(2)
+        os.execl(sys.executable, sys.executable, *sys.argv)
 
 # Start the motor logic
 motors=motor_control.motor_control()
@@ -63,12 +65,17 @@ while True:
         print("I've been hit!")
         #socket_set.hit()
         buzzer.buzz(128, 1.0)
+        motors.penalty_on_hit()
         clear = ir.read()
         if( socket ):
             socket.hit()
 
     # Reads in the values from the PS3 controller
-    p.update()
+    try:
+        p.update()
+    except:
+        print("Controller lost!")
+        
 
     # attempt to bind to the socket server if the start button is pressed
     if ( p.start ):

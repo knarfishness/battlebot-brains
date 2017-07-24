@@ -49,7 +49,7 @@ class ps3:
 	def __init__(self):
 		#Make the stdout buffer as 0,because of bug in Pygame which keeps on printing debug statements
 		#http://stackoverflow.com/questions/107705/python-output-buffering
-		sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)
+		#sys.stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)
 		
 		pygame.init()
 		pygame.joystick.init()
