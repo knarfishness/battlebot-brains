@@ -51,7 +51,7 @@ class socket_set:
 
     def register(self):
         print('Attempting registration')
-        self.socketIO.emit('register')
+        self.socketIO.emit('register', {'botname': 'grimlok'})
         #self.socketIO.wait()
 
     def ready(self):
